@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheme Results</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>SchemeSaathi 🇮🇳</h1>
+    <p>Your personalized results</p>
+</header>
+
+<main class="container">
+
+    <h2>Hello, {{ user.name }}!</h2>
+
+    <p>Here are the demo programs matching your profile.</p>
+
+    {% if schemes %}
+
+        {% for scheme in schemes %}
+
+        <div class="scheme-card">
+
+            <h3>{{ scheme.name }}</h3>
+
+            <p><strong>Category:</strong> {{ scheme.category }}</p>
+
+            <p><strong>Illustrative benefit:</strong>
+                {{ scheme.benefit }}</p>
+
+            <p><strong>Demo document checklist:</strong>
+                {{ scheme.documents }}</p>
+
+            <a href="{{ scheme.link }}" target="_blank"
+               rel="noopener noreferrer">
+                Explore Government Schemes
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="scheme-card">
+            <h3>No demo matches found</h3>
+            <p>Try another test profile or check the official
+               government scheme portal.</p>
+        </div>
+
+    {% endif %}
+
+    <p class="note">
+        These are illustrative matches, not official eligibility
+        decisions. Verify all requirements with the scheme authority.
+    </p>
+
+    <a href="/">← Go Back</a>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SchemeSaathi</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>SchemeSaathi 🇮🇳</h1>
+    <p>Your Digital Government Scheme Assistant</p>
+</header>
+
+<main class="container">
+
+    <h2>Find Government Support Programs</h2>
+
+    <p>Enter your details to discover potentially relevant schemes.</p>
+
+    <form action="/find-schemes" method="POST">
+
+        <label>Full Name</label>
+        <input type="text" name="name" required
+               placeholder="Enter your name">
+
+        <label>Age</label>
+        <input type="number" name="age" min="1" max="120"
+               required placeholder="Enter your age">
+
+        <label>Annual Family Income (₹)</label>
+        <input type="number" name="income" min="0" step="0.01"
+               required placeholder="Example: 180000">
+
+        <label>State</label>
+        <select name="state" required>
+            <option value="">Select your state</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Maharashtra">Maharashtra</option>
+        </select>
+
+        <label>Occupation</label>
+        <select name="occupation" required>
+            <option value="">Select occupation</option>
+            <option value="Student">Student</option>
+            <option value="Farmer">Farmer</option>
+            <option value="Unemployed">Unemployed</option>
+        </select>
+
+        <button type="submit">Find My Schemes</button>
+
+    </form>
+
+    <p class="note">
+        Demo prototype. Results are indicative and do not
+        confirm official eligibility.
+    </p>
+
+</main>
+
+<footer>
+    <p>SchemeSaathi | Technology for Everyone</p>
+</footer>
+
+</body>
+</html>
